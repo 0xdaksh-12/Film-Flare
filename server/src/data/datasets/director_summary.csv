@@ -1,0 +1,187 @@
+director,movie_count,avg_rating,image_url
+Steven Spielberg,17,3.638235294117647,https://image.tmdb.org/t/p/w500/tZxcg19YQ3e8fJ0pOs7hjlnmmr6.jpg
+Tim Burton,11,3.3781818181818184,https://image.tmdb.org/t/p/w500/yHEHAHQpN9PfSEQx1UxZPczhcAi.jpg
+David Fincher,10,3.65,https://image.tmdb.org/t/p/w500/tpEczFclQZeKAiCeKZZ0adRvtfz.jpg
+Ridley Scott,9,3.761111111111111,https://image.tmdb.org/t/p/w500/97SO7H0UlS3racqjeW5JTy8c6GM.jpg
+Martin Scorsese,9,3.968888888888889,https://image.tmdb.org/t/p/w500/9U9Y5GQuWX3EZy39B8nkk4NY01S.jpg
+Ron Howard,8,3.38625,https://image.tmdb.org/t/p/w500/g3n8qduLaPO2l4kJZsV6xNMXozn.jpg
+Christopher Nolan,8,3.9475,https://image.tmdb.org/t/p/w500/xuAIuYSmsUzKlUMBFGVZaWsY3DZ.jpg
+Richard Donner,8,3.28125,https://image.tmdb.org/t/p/w500/wjRecQiVLUAm6jwyT5craxhg3lD.jpg
+Robert Zemeckis,8,3.68125,https://image.tmdb.org/t/p/w500/lPYDQ5LYNJ12rJZENtyASmVZ1Ql.jpg
+Quentin Tarantino,7,4.001428571428572,https://image.tmdb.org/t/p/w500/1gjcpAa99FAOWGnrUvHEXXsRs7o.jpg
+James Cameron,7,3.6885714285714286,https://image.tmdb.org/t/p/w500/9NAZnTjBQ9WcXAQEzZpKy4vdQto.jpg
+Rob Reiner,7,3.917142857142857,https://image.tmdb.org/t/p/w500/rcmPU3YlhHQVzZlV197qhmRsgEL.jpg
+Wolfgang Petersen,7,3.5500000000000003,https://image.tmdb.org/t/p/w500/g4F3DMUruouQX8mpUNHRGKMlmd1.jpg
+Chris Columbus,6,3.1816666666666666,https://image.tmdb.org/t/p/w500/yCyEz90NqjEXKZ7HYcEhDXlLlPc.jpg
+Barry Sonnenfeld,6,3.09,https://image.tmdb.org/t/p/w500/n6y6vaAFfSqsJodgkwTxAey4NoG.jpg
+Joe Johnston,6,3.266666666666667,
+Steven Soderbergh,6,3.65,https://image.tmdb.org/t/p/w500/y8JlSDcQzd7gAaKyxFpExupMwDz.jpg
+Stanley Kubrick,6,3.966666666666667,https://image.tmdb.org/t/p/w500/yFT0VyIelI9aegZrsAwOG5iVP4v.jpg
+Michael Bay,6,3.268333333333333,https://image.tmdb.org/t/p/w500/rkC7lei20x5xlFH4SivAXXBh6uR.jpg
+Paul Verhoeven,6,3.0500000000000003,
+Sam Raimi,6,3.561666666666667,https://image.tmdb.org/t/p/w500/8gssvwiPrFRuFRlr5ruKx68k1Jl.jpg
+John McTiernan,6,3.5749999999999997,https://image.tmdb.org/t/p/w500/yVfDkVbgQHD1A7JSV8Z47EjB1mU.jpg
+Terry Gilliam,5,3.934,https://image.tmdb.org/t/p/w500/7qBkaXxANmnb6hqQCBc4iWqXEL6.jpg
+Tony Scott,5,3.572,https://image.tmdb.org/t/p/w500/5PYRgW97xk9iNVC8dS0seoIliRR.jpg
+Joel Schumacher,5,3.064,https://image.tmdb.org/t/p/w500/fTQwIwVFrL9bFe0LdToQaIkT737.jpg
+Peter Jackson,5,3.8920000000000003,https://image.tmdb.org/t/p/w500/bNc908d59Ba8VDNr4eCcm4G1cR.jpg
+George Lucas,5,3.556,https://image.tmdb.org/t/p/w500/mDLDvsx8PaZoEThkBdyaG1JxPdf.jpg
+Brian De Palma,5,3.7,https://image.tmdb.org/t/p/w500/4xleWFdhtVC7faer6Ru2eyEgfTv.jpg
+Joel Coen,5,3.878,https://image.tmdb.org/t/p/w500/rgVaJNkZCgMarUcZuUAsVfXMWk3.jpg
+Mel Brooks,5,3.7020000000000004,https://image.tmdb.org/t/p/w500/c21qNcMJlHnRolfhQhZOVacjtwI.jpg
+Roland Emmerich,5,3.056,https://image.tmdb.org/t/p/w500/mN8x74uv9yQ7dJl8nh2q26mkY8v.jpg
+Ivan Reitman,5,3.3899999999999997,https://image.tmdb.org/t/p/w500/zqD7JCRwqWVAdFqspDU6kzdqkan.jpg
+Kevin Smith,5,3.53,https://image.tmdb.org/t/p/w500/ofD6H52wDnkuGHNwT9T41IOxq9s.jpg
+Alfred Hitchcock,5,4.022,https://image.tmdb.org/t/p/w500/108fiNM6poRieMg7RIqLJRxdAwG.jpg
+Doug Liman,5,3.746,https://image.tmdb.org/t/p/w500/5pPcmwI7GMZ45CyrYLJ3n0IXm6e.jpg
+Ang Lee,5,3.474,
+Jay Roach,5,3.224,https://image.tmdb.org/t/p/w500/48uTxNDRlnP56quVewyByotKAen.jpg
+Peter Weir,4,3.765,https://image.tmdb.org/t/p/w500/4GxIZX5gtbMpW4ZgHwvGmLSIHOE.jpg
+Clint Eastwood,4,3.9050000000000002,https://image.tmdb.org/t/p/w500/8TwdCfeOZH7ucRlfLZ6wObxa7cO.jpg
+Brett Ratner,4,3.3575,https://image.tmdb.org/t/p/w500/y40YzrI2ooWiWxfisx6zCZGueEu.jpg
+Cameron Crowe,4,3.7,https://image.tmdb.org/t/p/w500/iBCN51wrmnSUr2mkQBuN9E2AZK.jpg
+Harold Ramis,4,3.4275,https://image.tmdb.org/t/p/w500/kmTMTxthkDAsygk3Am4IUSVYYRi.jpg
+Tom Shadyac,4,3.03,https://image.tmdb.org/t/p/w500/kuliB1DrKSbdn2jxESncPbWxGrD.jpg
+Peter Segal,4,3.3625,https://image.tmdb.org/t/p/w500/x0nAuktiPai0OovveeegPAi0dRF.jpg
+Jon Turteltaub,4,3.2875,https://image.tmdb.org/t/p/w500/embHCkQj1fs1PaISQSQQbi9TjHj.jpg
+John Landis,4,3.4875,https://image.tmdb.org/t/p/w500/nXKdxxELgAaGecCpxAWCoj6TV3f.jpg
+Hayao Miyazaki,4,4.04,https://image.tmdb.org/t/p/w500/ouhjt9KugzhWtdEyBPipihB3ic8.jpg
+Wes Anderson,4,3.6225,https://image.tmdb.org/t/p/w500/s03CeUeC5yAXyB1acqP0zGNo2SC.jpg
+Guy Ritchie,4,3.955,https://image.tmdb.org/t/p/w500/9pLUnjMgIEWXi0mlHYzie9cKUTD.jpg
+Edward Zwick,4,3.8075,https://image.tmdb.org/t/p/w500/RzRjOpqfob68smXTj5RPjankKr.jpg
+Barry Levinson,4,3.6225,
+Gore Verbinski,4,3.4825,https://image.tmdb.org/t/p/w500/rSQRdmLNAwdKxrtvBSSlBmWeSsj.jpg
+Oliver Stone,4,3.5300000000000002,https://image.tmdb.org/t/p/w500/zn4XrQMUg32poFHJd2kwlXBPmGg.jpg
+Frank Oz,4,3.2,https://image.tmdb.org/t/p/w500/mb2JbT8s6LIgaxj6QTph0NW1pmI.jpg
+Bryan Singer,4,3.8725,
+Stephen Herek,4,3.435,https://image.tmdb.org/t/p/w500/ni2MxgHBvzzYj9OzHpQ3yHkar79.jpg
+David Yates,4,3.9125,https://image.tmdb.org/t/p/w500/hAHOxR0NK4cZDumqNIpDoEdGVAh.jpg
+Matthew Vaughn,4,3.7575000000000003,
+Francis Ford Coppola,4,4.0325,https://image.tmdb.org/t/p/w500/IwGgkmW6IoJ9vuNF0T9CU3FYUX.jpg
+Darren Aronofsky,4,3.785,https://image.tmdb.org/t/p/w500/tOjz8mVI2HeQBvU6KNjIExMBsXL.jpg
+Danny Boyle,4,3.72,https://image.tmdb.org/t/p/w500/b5qQpFHmgNyvV1t81ou17Jt2fRj.jpg
+John Lasseter,4,3.67,https://image.tmdb.org/t/p/w500/xlrE4VD2VbZCDpaNdWCpH1ZihPS.jpg
+Michael Mann,4,3.8200000000000003,
+Ben Stiller,3,3.2733333333333334,https://image.tmdb.org/t/p/w500/scgpxhI05JpdNXXfmpK6z0rPOWN.jpg
+Paul Thomas Anderson,3,3.8033333333333332,https://image.tmdb.org/t/p/w500/wKAs2LtLYSUzt3ZZ8pnxMwuEWuR.jpg
+David Lynch,3,3.74,https://image.tmdb.org/t/p/w500/wwBzRDoIW6Ld64h6OkQ6ImCZKsR.jpg
+Roman Polanski,3,4.163333333333333,https://image.tmdb.org/t/p/w500/5yMO7d7NsODZtCwF22Xnlp3oVnE.jpg
+Sydney Pollack,3,3.3800000000000003,https://image.tmdb.org/t/p/w500/d22QmhGE9bCkXeOwRsfrGTk188I.jpg
+Sergio Leone,3,4.08,https://image.tmdb.org/t/p/w500/2576qoW8l9Z1nKGM10ar60aIwUu.jpg
+Clyde Geronimi|Wilfred Jackson|Hamilton Luske,3,3.48,
+Martin Campbell,3,3.513333333333333,https://image.tmdb.org/t/p/w500/xAaNHXBrwTPDjZRs5vDD0fMO9bx.jpg
+Miloš Forman,3,3.956666666666667,https://image.tmdb.org/t/p/w500/O2Crxh0l3u1mxHvjA6003gEpi7.jpg
+John Carpenter,3,3.4333333333333336,https://image.tmdb.org/t/p/w500/ghBgALx0z2hGdY32eG9VL6dPyhz.jpg
+Jonathan Lynn,3,3.276666666666667,https://image.tmdb.org/t/p/w500/q1yanpd0HSPOENuyU267euwIdgY.jpg
+M. Night Shyamalan,3,3.513333333333333,https://image.tmdb.org/t/p/w500/tOhFWjauKvJgjCVLJFnhbBCZuxZ.jpg
+Henry Selick,3,3.5666666666666664,https://image.tmdb.org/t/p/w500/2LvtcpV8njWrp2W9eXmTNjsAWev.jpg
+Wolfgang Reitherman,3,3.5833333333333335,https://image.tmdb.org/t/p/w500/biIAk3hrc7Ed2ZnjadMiMS1EswM.jpg
+Renny Harlin,3,3.25,https://image.tmdb.org/t/p/w500/IhXiDrZBrsLZpB5K5BmzUGkp4G.jpg
+Sam Mendes,3,3.796666666666667,https://image.tmdb.org/t/p/w500/5z89X9rB76JDblqMQ52fviwXxAN.jpg
+Brad Bird,3,3.92,https://image.tmdb.org/t/p/w500/z73rItPBDoRUowY5kuWDMlue3DB.jpg
+Michael Moore,3,3.703333333333333,
+Todd Phillips,3,3.41,
+John Woo,3,3.033333333333333,https://image.tmdb.org/t/p/w500/oRyQ1k5JqSFoZC1CyHeOiuqVnIF.jpg
+Jason Reitman,3,3.84,https://image.tmdb.org/t/p/w500/tsxhDMgFSa2Ne1skq6yK42Tgxtw.jpg
+Marc Forster,3,3.5866666666666664,https://image.tmdb.org/t/p/w500/zNg3chtZxhqnx3N5cKn0bRQ0mkr.jpg
+Edgar Wright,3,3.9033333333333338,https://image.tmdb.org/t/p/w500/dQzv5Ml2SkelS33hgl7E2oh0a9S.jpg
+Guillermo del Toro,3,3.466666666666667,https://image.tmdb.org/t/p/w500/cWvt8FdPAH0j3QtLzAN1j7ZJJrr.jpg
+Luc Besson,3,3.9466666666666668,https://image.tmdb.org/t/p/w500/dXJdczT1NcvcZtnoWVGT0NmG11v.jpg
+Alfonso Cuarón,3,3.813333333333334,https://image.tmdb.org/t/p/w500/eoCHiXaQzGgx9RiwXnt3k239FLc.jpg
+Jon Favreau,3,3.6733333333333333,https://image.tmdb.org/t/p/w500/tnx7iMVydPQXGOoLsxXl84PXtbA.jpg
+John Hughes,3,3.7399999999999998,https://image.tmdb.org/t/p/w500/7QBh9D3Qjf667Q549VeJAAV7O38.jpg
+Woody Allen,3,3.8533333333333335,https://image.tmdb.org/t/p/w500/wcPQgZLDibuej1RwNTy1R2U2ZJw.jpg
+Alex Proyas,3,3.64,https://image.tmdb.org/t/p/w500/mO9l5kK98stC34jRuvFOWQtpC8l.jpg
+Phillip Noyce,3,3.4466666666666668,https://image.tmdb.org/t/p/w500/6i0Or09DucNCJU9DxYv23drIrMN.jpg
+Stephen Sommers,3,3.2466666666666666,https://image.tmdb.org/t/p/w500/wGhd7IF1Buf7qPXuC4y1t02hams.jpg
+Mike Newell,3,3.6933333333333334,https://image.tmdb.org/t/p/w500/zeLnvLZtyJaBP1wWceRM7HWkm0E.jpg
+Pete Docter,3,3.893333333333333,https://image.tmdb.org/t/p/w500/vITDphkNpSn1LP5gUEheAnlclnl.jpg
+George Miller,3,3.783333333333333,https://image.tmdb.org/t/p/w500/35NQ8HjFXQlGYDz9UkhT08lKl5C.jpg
+Curtis Hanson,3,3.533333333333333,https://image.tmdb.org/t/p/w500/1ht0tJ0Icxc134W3ZpcGtwMtNLA.jpg
+Paul Greengrass,2,3.745,https://image.tmdb.org/t/p/w500/kJxQWrERq8p7gxRP2fIcS8suwme.jpg
+Len Wiseman,2,3.455,https://image.tmdb.org/t/p/w500/aXsTPBb6dQ2T3PxLqy2ijf2nxrG.jpg
+Andrew Stanton,2,4.01,https://image.tmdb.org/t/p/w500/fo6ePCWEVB0L1sccrvB99Iaoqcg.jpg
+Joss Whedon,2,3.9050000000000002,https://image.tmdb.org/t/p/w500/mVvpZnKYKSCtkOQixQnOonV5kv3.jpg
+Francis Lawrence,2,3.475,https://image.tmdb.org/t/p/w500/pyGWo5mAwZ2Koe6leB2RjKd7vmc.jpg
+Kevin Reynolds,2,3.37,https://image.tmdb.org/t/p/w500/nLFx6wt9DVeYjTv2abGdY09ALsm.jpg
+Neil Jordan,2,3.45,https://image.tmdb.org/t/p/w500/uZ7CvCLTKb9qxjU4VsTNeyMRucd.jpg
+Alejandro González Iñárritu,2,3.7,https://image.tmdb.org/t/p/w500/Av0jewh8wltCl1CB8MfEIrvgfMZ.jpg
+Neil Burger,2,3.865,https://image.tmdb.org/t/p/w500/vTNNx4d3uy6v30DmWCRcqeBxeGb.jpg
+J.J. Abrams,2,3.855,https://image.tmdb.org/t/p/w500/uiEVOx3QclxnN76t8PU6v5IcUUP.jpg
+Duncan Jones,2,3.785,https://image.tmdb.org/t/p/w500/qNNp4wnRAPXfp8lM5PxTC2swFDM.jpg
+Robert Rodriguez,2,3.535,https://image.tmdb.org/t/p/w500/bPqRdLWWwpOT8sBdj9PWOzNgwou.jpg
+Dennis Dugan,2,3.3200000000000003,https://image.tmdb.org/t/p/w500/fnAaknflGp2Phr1Q0dWkA41ohNO.jpg
+Paul W. S. Anderson,2,2.81,https://image.tmdb.org/t/p/w500/3LBggv2qwBVjDi45DA0RTadgw12.jpg
+Gus Van Sant,2,3.6950000000000003,https://image.tmdb.org/t/p/w500/kICHgrSh4eiICjz8piy9fTXIgph.jpg
+Mike Nichols,2,3.775,
+Judd Apatow,2,3.5999999999999996,https://image.tmdb.org/t/p/w500/7iD2D263nT0ZOF6vuUojQYQ5cbf.jpg
+Zack Snyder,2,3.835,https://image.tmdb.org/t/p/w500/iD0GDqkvJXDXiNEZej198hjt3Tt.jpg
+Amy Heckerling,2,3.385,https://image.tmdb.org/t/p/w500/hIc3bQxLOPAcpGJ1CVFuzpzJRZ0.jpg
+Jerry Zucker,2,3.255,https://image.tmdb.org/t/p/w500/iSzdnge16GBKLkBoTM4mqUIWIxi.jpg
+Iain Softley,2,3.355,https://image.tmdb.org/t/p/w500/p2D9UrLOGOFoiOC5pmmsEUqLOEr.jpg
+Shane Black,2,3.8150000000000004,https://image.tmdb.org/t/p/w500/fafBg8LjtQqsXyFg8ZgW7DHQXKt.jpg
+Frank Marshall,2,2.8449999999999998,
+Michael Apted,2,3.335,https://image.tmdb.org/t/p/w500/8ZLhPKz9CDZdbvFCIBAJMfd9IxE.jpg
+Nick Park,2,3.9699999999999998,https://image.tmdb.org/t/p/w500/C51kzgPopTjOkLewW9Pt8f2YIG.jpg
+Michael Lehmann,2,3.56,
+Stephen Norrington,2,2.99,https://image.tmdb.org/t/p/w500/yz6mmhcGoglQEILf5uUCK636NH8.jpg
+Robert Altman,2,3.9400000000000004,https://image.tmdb.org/t/p/w500/wB1R6patGi35oaxKU5PWEGJlIZg.jpg
+Alexander Payne,2,3.7,https://image.tmdb.org/t/p/w500/d8mwLxuCMxMxcE8Qys9sdUb7UZg.jpg
+F. Gary Gray,2,3.4850000000000003,https://image.tmdb.org/t/p/w500/lVbwLnxtdiQaS8oGWFZMkhATLc5.jpg
+Gary Ross,2,3.46,
+Lana Wachowski|Lilly Wachowski,2,3.7700000000000005,
+Penny Marshall,2,3.595,https://image.tmdb.org/t/p/w500/tENryuxNtctDMS26Tv5d8B7TclQ.jpg
+Chuck Russell,2,3.145,
+Betty Thomas,2,2.675,https://image.tmdb.org/t/p/w500/y9K6S2TsiLpcQoIwDM1qigx1VJ4.jpg
+John Musker|Ron Clements,2,3.6100000000000003,
+Nora Ephron,2,3.295,https://image.tmdb.org/t/p/w500/5m0iu8lT0TVu0nKk5eWOR7w2K0a.jpg
+Brian Helgeland,2,3.38,https://image.tmdb.org/t/p/w500/3nva1KGfPZMhqxBnr5PymluTOxf.jpg
+Kenneth Branagh,2,3.66,https://image.tmdb.org/t/p/w500/AbCqqFxNi5w3nDUFdQt0DGMFh5H.jpg
+David O. Russell,2,3.715,https://image.tmdb.org/t/p/w500/59rXnJS4g5dUr1Hz8QNLo5epD2a.jpg
+Trey Parker,2,3.665,https://image.tmdb.org/t/p/w500/pVEfyxGOBoKoirRZtmSsJ7PX91V.jpg
+Lasse Hallström,2,3.645,https://image.tmdb.org/t/p/w500/zEz9LphkDBcGAAYGdjIU5QzjB9C.jpg
+Frank Darabont,2,4.29,https://image.tmdb.org/t/p/w500/vZ50guP86otYTiBSGfi35GNHWVf.jpg
+Danny Leiner,2,3.0949999999999998,https://image.tmdb.org/t/p/w500/mDypz89Zpl5UudQg3saZAQj9hCT.jpg
+Peyton Reed,2,3.1550000000000002,
+Peter Farrelly|Bobby Farrelly,2,3.0599999999999996,
+Dominic Sena,2,3.16,https://image.tmdb.org/t/p/w500/oSmE4r1Lg3earvq4DLInp3N7UMF.jpg
+P.J. Hogan,2,3.385,https://image.tmdb.org/t/p/w500/a9nTCDzLrnrEgD81WiRvZ4zN1VX.jpg
+Jonathan Mostow,2,3.23,https://image.tmdb.org/t/p/w500/yRMYvjGLIf0aOUKVLnU6jSpR1oQ.jpg
+Terence Young,2,3.73,https://image.tmdb.org/t/p/w500/5Kq0XBQ4VxD7WHztKthdIF1XxVP.jpg
+Jan de Bont,2,3.425,https://image.tmdb.org/t/p/w500/evj9vN5pxxjr4aFLZRvniU0gzof.jpg
+Spike Jonze,2,3.95,https://image.tmdb.org/t/p/w500/x2QeqEXvi3QjgTybvZ4mmqUf4qO.jpg
+Richard Linklater,2,3.665,https://image.tmdb.org/t/p/w500/xSctxeZQzQbZoaxIvcDeHlDjbiN.jpg
+Jonathan Demme,2,3.885,https://image.tmdb.org/t/p/w500/w9Lw3xTEFQUYELkl9AH5i3p5OhJ.jpg
+Garry Marshall,2,3.16,https://image.tmdb.org/t/p/w500/uYVagiSCH4gj3BcYownQySVwfy7.jpg
+Terry Jones,2,3.9400000000000004,
+Emile Ardolino,2,3.2,https://image.tmdb.org/t/p/w500/yRXDdL8yngF1jI4FjFcicYL25Ii.jpg
+Mike Judge,2,3.5149999999999997,https://image.tmdb.org/t/p/w500/ol4kd4mSOK7Hx3r86ydez84bwEI.jpg
+Wes Craven,2,3.06,https://image.tmdb.org/t/p/w500/eqwl6owrYykeTGTpKxwcAkbEJmg.jpg
+Andrew Niccol,2,3.83,https://image.tmdb.org/t/p/w500/jTNhskoCvZsLqZwk5CFIrMpCftx.jpg
+Simon West,2,2.965,https://image.tmdb.org/t/p/w500/yQpwEIsszmeVCmEAp8yrPP8LtvS.jpg
+Bobby Farrelly|Peter Farrelly,2,3.5250000000000004,
+Jean-Pierre Jeunet,2,3.55,https://image.tmdb.org/t/p/w500/4DhPaNaxYnkgxVJHVLyL5gKmKpG.jpg
+Ron Shelton,2,3.42,https://image.tmdb.org/t/p/w500/eUzRfBeh2Fn6dJtmlvLO42XuYgt.jpg
+Gary Trousdale|Kirk Wise,2,3.55,
+Rob Cohen,2,3.08,
+Gregory Hoblit,2,3.5300000000000002,https://image.tmdb.org/t/p/w500/1YUF4UpcCX3j3J65a4L1KoLOHAl.jpg
+John G. Avildsen,2,3.7,https://image.tmdb.org/t/p/w500/vDroEhmg2LLLKvReiHRwVvhtxh0.jpg
+William Friedkin,2,3.835,https://image.tmdb.org/t/p/w500/c70AdZsqOsSjEuUp37W5HPYeeKw.jpg
+Billy Wilder,2,3.8899999999999997,https://image.tmdb.org/t/p/w500/nWV9BDDCbRegP7etiPjl3vYnJEq.jpg
+John Huston,2,4.07,
+David Lean,2,4.21,
+George Roy Hill,2,3.96,https://image.tmdb.org/t/p/w500/4DMJLc6Y2eVgoFyjmNDFygQBXCV.jpg
+Franklin J. Schaffner,2,3.96,https://image.tmdb.org/t/p/w500/m04NRi0fxmE3xBZMwnIkpkjItBe.jpg
+John Frankenheimer,2,3.885,https://image.tmdb.org/t/p/w500/8a3qZrHQaj5JBG1uVv6NdCC7PK3.jpg
+Phil Alden Robinson,2,3.5,https://image.tmdb.org/t/p/w500/cYgEgM3MxDb0I1olvrZNHXjuC6I.jpg
+Leonard Nimoy,2,3.37,https://image.tmdb.org/t/p/w500/vyo1sOdwEIP8adhts3UpelyiBwn.jpg
+Nicholas Meyer,2,3.56,
+Jonathan Frakes,2,3.5149999999999997,https://image.tmdb.org/t/p/w500/b6ljJL0sn9VGoivLF3AH5sX1lcK.jpg
+Baz Luhrmann,2,3.6550000000000002,https://image.tmdb.org/t/p/w500/8K8ih7uFyGanOApYYzlzdxzcfDF.jpg
+Robert Wise,2,3.49,
+Victor Fleming,2,3.76,https://image.tmdb.org/t/p/w500/kwMaOpQnirmXFEuvP0t7Zc94sqj.jpg
+Anthony Minghella,2,3.525,https://image.tmdb.org/t/p/w500/3zNlCjH6Ddh5pn2UrNWd6SAKGKg.jpg
+Marc Webb,2,3.46,
+Jon Amiel,2,3.1050000000000004,https://image.tmdb.org/t/p/w500/tZf4VLvFobxizCzDQ6xQdygGT9.jpg
+Sidney Lumet,2,4.04,https://image.tmdb.org/t/p/w500/hjj3V2DkPJ46zo5uz9bsZQzAk6R.jpg
+Howard Deutch,2,3.25,https://image.tmdb.org/t/p/w500/9MOjJAkLZHET0IrKsV6ysUryfs7.jpg
