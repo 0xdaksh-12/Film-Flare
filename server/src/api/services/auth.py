@@ -198,7 +198,7 @@ class AuthService:
                 new_refresh_token = self.jwt_service.generate_refresh_token(
                     user_id, session_id
                 )
-                session_obj.refresh_token = self.password_service.hashed(
+                session_obj.refresh_token_hash = self.password_service.hashed(
                     new_refresh_token
                 )
                 self._set_cookie_token(response, new_refresh_token)
