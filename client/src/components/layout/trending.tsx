@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import useAuth from "@/hooks/use-auth";
 import MovieModel from "./movieModel";
+import { Link } from "wouter";
 
 export default function Trending() {
   const auth = useAuth();
@@ -51,12 +52,12 @@ export default function Trending() {
     } else {
       toast.error("Please login first", {
         description: (
-          <a
+          <Link
             href="/auth/login"
-            className="text-primary underline hover:text-primary/80"
+            className="text-primary underline hover:text-primary/80 dark:text-accent"
           >
-            Login Now →
-          </a>
+            Go to Login →
+          </Link>
         ),
         duration: 4000,
       });

@@ -217,7 +217,7 @@ export default function AuthProvider({ children }: Props) {
     async (credentials: LoginRequest): Promise<AuthResponse> => {
       setLoading(true);
       try {
-        const response = await apiAuth.post<AuthResponse>(
+        const response = await api.post<AuthResponse>(
           "/auth/login",
           credentials
         );

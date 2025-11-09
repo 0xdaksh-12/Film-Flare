@@ -94,6 +94,7 @@ class AuthService:
             user_auth = await self.session.scalar(
                 select(UserAuth).where(UserAuth.email == data.email)
             )
+
             if not user_auth:
                 raise HTTPException(status_code=401, detail="Invalid credentials")
 

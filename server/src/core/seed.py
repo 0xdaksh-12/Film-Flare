@@ -8,9 +8,6 @@ from src.api.models import (
     Actor,
     Director,
     Movie,
-    MovieActorLink,
-    MovieDirectorLink,
-    MovieGenreLink,
     Year,
 )
 from src.core import init_db

@@ -9,3 +9,6 @@ client:
 install:
 	cd server && uv sync
 	cd client && pnpm install
+
+seed:
+	cd server && uv run python -m src.core.seed

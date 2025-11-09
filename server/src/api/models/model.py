@@ -1,4 +1,4 @@
-from sqlmodel import SQLModel, Field, Relationship, UniqueConstraint
+from sqlmodel import SQLModel, Field, Relationship
 from pydantic import EmailStr
 from uuid import UUID, uuid4
 from datetime import datetime
@@ -23,9 +23,6 @@ class User(SQLModel, table=True):
     )
     sessions: list["Session"] = Relationship(back_populates="user")
     ratings: list["UserRating"] = Relationship(back_populates="user")
-    preferences: Optional["UserPreference"] = Relationship(  # one-to-one
-        back_populates="user", sa_relationship_kwargs={"uselist": False}
-    )
 
 
 class UserAuth(SQLModel, table=True):
@@ -177,66 +174,9 @@ class UserRating(SQLModel, table=True):
     user_id: UUID = Field(foreign_key="user.id", primary_key=True)
     movie_id: int = Field(foreign_key="movie.id", primary_key=True)
     rating: int = Field(ge=1, le=5)
-    is_pseudo: bool = Field(default=True)
 
     created_at: datetime = Field(default_factory=now_utc)
     updated_at: datetime = Field(default_factory=now_utc)
 
     user: User = Relationship(back_populates="ratings")
     movie: Movie = Relationship(back_populates="ratings")
-
-
-class UserPreference(SQLModel, table=True):
-    __tablename__: str = "user_preference"
-    __table_args__: tuple[UniqueConstraint] = (
-        UniqueConstraint("user_id", name="uq_user_preference_user_id"),
-    )
-
-    id: UUID = Field(default_factory=uuid4, primary_key=True, index=True)
-    user_id: UUID = Field(foreign_key="user.id", index=True)
-
-    created_at: datetime = Field(default_factory=now_utc)
-    updated_at: datetime = Field(default_factory=now_utc)
-
-    linked_genres: list["UserGenreLink"] = Relationship(
-        back_populates="user_preference"
-    )
-    linked_actors: list["UserActorLink"] = Relationship(
-        back_populates="user_preference"
-    )
-    linked_directors: list["UserDirectorLink"] = Relationship(
-        back_populates="user_preference"
-    )
-    linked_movies: list["UserMovieLink"] = Relationship(
-        back_populates="user_preference"
-    )
-
-    user: User = Relationship(back_populates="preferences")
-
-
-class UserGenreLink(SQLModel, table=True):
-    __tablename__: str = "user_genre_link"
-    user_preference_id: UUID = Field(foreign_key="user_preference.id", primary_key=True)
-    genre_id: UUID = Field(foreign_key="genre.id", primary_key=True)
-    user_preference: UserPreference = Relationship(back_populates="linked_genres")
-
-
-class UserActorLink(SQLModel, table=True):
-    __tablename__: str = "user_actor_link"
-    user_preference_id: UUID = Field(foreign_key="user_preference.id", primary_key=True)
-    actor_id: UUID = Field(foreign_key="actor.id", primary_key=True)
-    user_preference: UserPreference = Relationship(back_populates="linked_actors")
-
-
-class UserDirectorLink(SQLModel, table=True):
-    __tablename__: str = "user_director_link"
-    user_preference_id: UUID = Field(foreign_key="user_preference.id", primary_key=True)
-    director_id: UUID = Field(foreign_key="director.id", primary_key=True)
-    user_preference: UserPreference = Relationship(back_populates="linked_directors")
-
-
-class UserMovieLink(SQLModel, table=True):
-    __tablename__: str = "user_movie_link"
-    user_preference_id: UUID = Field(foreign_key="user_preference.id", primary_key=True)
-    movie_id: int = Field(foreign_key="movie.id", primary_key=True)
-    user_preference: UserPreference = Relationship(back_populates="linked_movies")
