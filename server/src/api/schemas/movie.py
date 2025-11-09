@@ -1,4 +1,5 @@
 from pydantic import BaseModel, Field
+from typing import Optional
 
 
 """
@@ -55,3 +56,9 @@ class MovieDetail(Movie):
 
 class MovieRatingIn(BaseModel):
     rating: int = Field(ge=1, le=5)
+
+
+class RecommendationResponse(BaseModel):
+    unlocked: bool
+    count: Optional[int] = None
+    recommendations: Optional[list[Movie]] = None

@@ -1,14 +1,12 @@
 from fastapi import Depends, HTTPException, Response, status
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlmodel import select
+from sqlmodel import select, func
 from uuid import UUID
 
 from src.core import get_session
 from src.api.models import User
 import src.api.schemas as UserSchema
-import logging
-
-logger = logging.getLogger("user")
+from src.api.models import UserRating
 
 
 class UserService:
@@ -33,7 +31,6 @@ class UserService:
         except HTTPException:
             raise
         except Exception as e:
-            logger.exception("Failed to fetch user by id %s: %s", user_id, e)
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail="Failed to fetch user",

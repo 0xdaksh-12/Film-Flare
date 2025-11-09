@@ -1,6 +1,6 @@
 import pickle
 import aiofiles
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple
 
 _cache: Dict[str, Any] = {
     "movie_dict": None,
@@ -74,3 +74,62 @@ async def similar(movieId: int) -> List[int]:
     ]
 
     return top_movie_ids
+
+
+async def recommend_for_new_user(
+    user_ratings: List[Tuple[int, float]], min_rating: float = 4.0, top_n: int = 10
+) -> List[int]:
+    """
+    Recommend movies for a new user based on movies they rated highly (>= min_rating).
+
+    Args:
+        user_ratings: list of (movie_id, rating)
+        min_rating: minimum rating to consider
+        top_n: number of recommendations to return
+
+    Returns:
+        List of top recommended movie IDs.
+    """
+    await _load_models_if_needed()
+
+    movie_id_to_index = _cache["movie_id_to_index"]
+    index_to_movie_id = _cache["index_to_movie_id"]
+    similarity = _cache["similarity"]
+
+    # Filter liked movies
+    liked_movies = [mid for mid, r in user_ratings if r >= min_rating]
+    if not liked_movies:
+        return []
+
+    candidate_scores: Dict[int, float] = {}
+
+    for mid in liked_movies:
+        if mid not in movie_id_to_index:
+            continue
+        movie_idx = movie_id_to_index[mid]
+        distances = similarity[movie_idx]
+
+        # Get top similar movies (excluding itself)
+        top_indices = [
+            i
+            for i, _ in sorted(enumerate(distances), key=lambda x: x[1], reverse=True)
+            if i != movie_idx
+        ][
+            :50
+        ]  # use more neighbors for better aggregation
+
+        for idx in top_indices:
+            other_id = index_to_movie_id.get(idx)
+            if not other_id or other_id in liked_movies:
+                continue
+            candidate_scores[other_id] = candidate_scores.get(other_id, 0.0) + float(
+                distances[idx]
+            )
+
+    if not candidate_scores:
+        return []
+
+    # Sort aggregated scores
+    ranked = sorted(candidate_scores.items(), key=lambda x: x[1], reverse=True)
+    recommended_ids = [mid for mid, _ in ranked[:top_n]]
+    return recommended_ids

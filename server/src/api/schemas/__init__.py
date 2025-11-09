@@ -10,4 +10,10 @@ from .auth import (
     ClientMeta,
     payloadToken,
 )
-from .movie import Movie, MovieDetail, MovieRatingIn, MovieTrending
+from .movie import (
+    Movie,
+    MovieDetail,
+    MovieRatingIn,
+    MovieTrending,
+    RecommendationResponse,
+)

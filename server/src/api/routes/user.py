@@ -1,4 +1,4 @@
-from fastapi import APIRouter, status, Request, Response, Depends, HTTPException
+from fastapi import APIRouter, status, Depends
 import src.api.schemas as schema
 from src.api.services import UserService
 from src.api.dependencies import auth_guard

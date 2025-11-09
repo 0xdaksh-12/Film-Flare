@@ -2,6 +2,8 @@ from fastapi import APIRouter, status, Depends, Query
 from src.api.dependencies import auth_guard
 import src.api.schemas as schema
 from src.api.services import MovieService
+from src.api.dependencies import auth_guard
+from uuid import UUID
 
 
 movie_router = APIRouter()
@@ -45,6 +47,20 @@ async def top_rated(
     movie_service: MovieService = Depends(),
 ) -> list[schema.Movie] | None:
     return await movie_service.top_rating(q=q, limit=limit, offset=offset)
+
+
+@movie_router.get(
+    "/recommendations",
+    response_model=schema.RecommendationResponse,
+    status_code=status.HTTP_200_OK,
+)
+async def personalized_recommendations(
+    auth_data: schema.AuthGuard = Depends(auth_guard),
+    movie_service: MovieService = Depends(),
+) -> schema.RecommendationResponse:
+
+    print("KJSDjfljLSJDLJLSJDLJFL")
+    return await movie_service.get_personalized_recommendations(auth_data.user_id)
 
 
 @movie_router.get(

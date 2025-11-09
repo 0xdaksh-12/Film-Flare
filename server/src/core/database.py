@@ -9,7 +9,7 @@ from typing import AsyncGenerator
 from src.config import Config
 
 
-engine: AsyncEngine = create_async_engine(Config.DB_URL, echo=True)
+engine: AsyncEngine = create_async_engine(Config.DB_URL, echo=False)
 
 
 async def init_db() -> None:

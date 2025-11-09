@@ -46,3 +46,9 @@ export interface MovieDetail extends MovieTrending {
   directors: string[];
   user_rating: number | null;
 }
+
+export type RecommendationResponse = {
+  unlocked: boolean;
+  count?: number;
+  recommendations?: Movie[];
+};

@@ -1,6 +1,7 @@
 import Filter from "@/components/layout/filter";
 import TopRated from "@/components/layout/topRated";
 import Trending from "@/components/layout/trending";
+import UserLikes from "@/components/layout/userLikes";
 import { useState } from "react";
 
 export default function HomePage() {
@@ -13,6 +14,7 @@ export default function HomePage() {
       </div>
       <Filter setFilter={setFilter} />
       <TopRated genre={filter} />
+      <UserLikes />
     </>
   );
 }

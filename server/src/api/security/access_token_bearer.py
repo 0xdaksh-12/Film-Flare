@@ -18,6 +18,7 @@ class AccessTokenBearer(HTTPBearer):
     async def __call__(self, request: Request) -> AuthGuard:
         creds: HTTPAuthorizationCredentials | None = await super().__call__(request)
 
+        print("creds", creds)
         if creds is None or creds.scheme.lower() != "bearer":
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
@@ -33,7 +34,7 @@ class AccessTokenBearer(HTTPBearer):
 
         # Decode token
         payload = self.jwt_service.decode_token(token, is_refresh=False)
-
+        print(payload)
         return AuthGuard(
             user_id=UUID(payload["user_id"]),
             session_id=UUID(payload["session_id"]),

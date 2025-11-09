@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import type { Movie } from "@/types";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Link } from "wouter";
-// import MovieDetails from "../models/movie-details";
 import useAuth from "@/hooks/use-auth";
 import { toast } from "sonner";
 import Scroller from "@/components/ui/scroller";

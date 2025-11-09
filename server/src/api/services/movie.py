@@ -5,7 +5,7 @@ from sqlalchemy.orm import selectinload, InstrumentedAttribute
 from typing import cast
 from uuid import UUID
 
-from src.data.ml import similar
+from src.data.ml import similar, recommend_for_new_user
 from src.core import get_session
 from src.api.models import (
     Movie,
@@ -334,3 +334,78 @@ class MovieService:
         await self.session.commit()
 
         return {"success": True}
+
+    async def get_high_rated_movies(
+        self, user_id: UUID, min_rating: int = 4
+    ) -> list[int]:
+        """Return list of movie IDs rated >= min_rating."""
+        try:
+            stmt = select(UserRating.movie_id).where(
+                (UserRating.user_id == user_id) & (UserRating.rating >= min_rating)
+            )
+            result = await self.session.execute(stmt)
+            return [row[0] for row in result.all()]
+        except Exception as e:
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=f"Failed to fetch rated movies: {e}",
+            )
+
+    async def get_personalized_recommendations(
+        self, user_id: UUID, min_rating: int = 4, top_n: int = 10
+    ) -> MovieSchema.RecommendationResponse:
+        """
+        Returns personalized 'You Might Like' recommendations for a user.
+        Unlocks after user rated >=5 movies with rating >= min_rating.
+        """
+        high_rated_movies = await self.get_high_rated_movies(user_id, min_rating)
+
+        # Case 1: Not enough movies rated yet
+        if len(high_rated_movies) < 5:
+            return MovieSchema.RecommendationResponse(
+                unlocked=False, count=len(high_rated_movies)
+            )
+
+        # Simulate ratings (we only care about liked movies)
+        user_ratings = [(mid, 4.0) for mid in high_rated_movies]
+
+        # Get recommended movie IDs from ML model
+        rec_ids = await recommend_for_new_user(
+            user_ratings, min_rating=min_rating, top_n=top_n
+        )
+
+        # Case 2: Unlock but no recommendations found
+        if not rec_ids:
+            return MovieSchema.RecommendationResponse(unlocked=True, recommendations=[])
+
+        # Fetch movies from DB
+        stmt = (
+            select(Movie)
+            .where(col(Movie.id).in_(rec_ids))
+            .options(
+                selectinload(cast(InstrumentedAttribute, Movie.genres)),
+                selectinload(cast(InstrumentedAttribute, Movie.actors)),
+                selectinload(cast(InstrumentedAttribute, Movie.directors)),
+            )
+        )
+        result = await self.session.execute(stmt)
+        movies = result.scalars().all()
+
+        # Preserve rec_ids order
+        id_to_movie = {m.id: m for m in movies}
+        ordered_movies = [id_to_movie[mid] for mid in rec_ids if mid in id_to_movie]
+
+        recommendations: list[MovieSchema.Movie] = [
+            MovieSchema.Movie(
+                id=m.id,
+                original_title=m.original_title,
+                overview=m.overview,
+                poster_path=m.poster_path,
+                avg_rating=m.avg_rating,
+            )
+            for m in ordered_movies
+        ]
+
+        return MovieSchema.RecommendationResponse(
+            unlocked=True, recommendations=recommendations
+        )

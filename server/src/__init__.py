@@ -7,6 +7,7 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession,
     async_sessionmaker,
 )
+from src.data.ml import _load_models_if_needed
 
 
 @asynccontextmanager
@@ -20,6 +21,9 @@ async def life_span(app: FastAPI):
     )
     async with async_session() as session:
         await create_fts_table(session)
+
+    # Cache ML models at startup
+    await _load_models_if_needed()
 
     yield
     print("Application is shutting down...")

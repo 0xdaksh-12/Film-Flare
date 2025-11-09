@@ -16,7 +16,7 @@ async def auth_guard(
     """
     Route dependency that verifies the decoded token's user and session.
     """
-
+    print("token_data", token_data)
     user_id = token_data.user_id
     session_id = token_data.session_id
 
@@ -35,5 +35,5 @@ async def auth_guard(
     )
     if not session:
         raise HTTPException(status_code=401, detail="Invalid or expired session")
-
+    print("Herro")
     return AuthGuard(user_id=user_id, session_id=session_id)
