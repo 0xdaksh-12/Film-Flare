@@ -11,23 +11,19 @@ import { Star, StarHalf } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import useAuth from "@/hooks/use-auth";
-import MovieDetails from "../models/movie-details";
+import MovieModel from "./movieModel";
 
 export default function Trending() {
+  const auth = useAuth();
   const [movies, setMovies] = useState<MovieTrending[]>([]);
   const [loading, setLoading] = useState(true);
   const autoplayRef = useRef(
     Autoplay({ delay: 5000, stopOnInteraction: false })
   );
-
   const [selectedMovie, setSelectedMovie] = useState<MovieTrending | null>(
     null
   );
   const [isOpen, setIsOpen] = useState(false);
-
-  const auth = useAuth();
-  if (!auth) throw new Error("useAuth must be used within an AuthProvider");
-  const { isAuth } = auth;
 
   useEffect(() => {
     const fetchTrending = async () => {
@@ -48,9 +44,10 @@ export default function Trending() {
   }, []);
 
   const handleOpenDetails = (movie: MovieTrending) => {
-    if (isAuth) {
+    if (auth?.isAuth) {
       setSelectedMovie(movie);
       setIsOpen(true);
+      console.log(movie);
     } else {
       toast.error("Please login first", {
         description: (
@@ -90,7 +87,7 @@ export default function Trending() {
             plugins={[autoplayRef.current]}
             className="h-full w-full"
           >
-            <CarouselContent className="h-full w-full gap-4">
+            <CarouselContent className="h-full w-full -ml-2">
               {movies.map((movie) => {
                 const rating = movie.avg_rating;
                 const fullStars = Math.floor(rating);
@@ -99,7 +96,7 @@ export default function Trending() {
 
                 return (
                   <CarouselItem key={movie.id} className="flex-none relative">
-                    <div className="overflow-hidden rounded-lg shadow-lg bg-white border border-accent-foreground">
+                    <div className="overflow-hidden shadow-lg border border-border">
                       {/* Poster + Overlay */}
                       <div className="relative w-[818px] h-[522px] overflow-hidden">
                         <img
@@ -167,7 +164,7 @@ export default function Trending() {
                                   {movie.genres.map((g) => (
                                     <span
                                       key={g}
-                                      className="px-2 sm:px-3 py-1 bg-accent-foreground/80 rounded text-accent text-[10px] sm:text-xs"
+                                      className="px-2 sm:px-3 py-1 rounded-md text-[10px] sm:text-xs bg-[#262626] text-[#fafafa] transition-colors"
                                     >
                                       {g}
                                     </span>
@@ -187,7 +184,7 @@ export default function Trending() {
                           <Button
                             variant="secondary"
                             size="lg"
-                            className="rounded-lg shadow-lg bg-primary text-accent hover:bg-primary/90"
+                            className="rounded-lg shadow-lg bg-[#e5e5e5] text-[#171717] hover:bg-[#e5e5e5]/90 transition-colors"
                             onClick={() => handleOpenDetails(movie)}
                           >
                             View Details
@@ -204,7 +201,7 @@ export default function Trending() {
       </section>
 
       {selectedMovie && (
-        <MovieDetails
+        <MovieModel
           movie={selectedMovie}
           isOpen={isOpen}
           onClose={() => {

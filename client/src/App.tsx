@@ -1,7 +1,7 @@
 import { ThemeProvider } from "next-themes";
-import Routes from "./routes/routes";
-import AuthProvider from "./providers/authProvider";
 import { Toaster } from "sonner";
+import Routes from "./routes";
+import AuthProvider from "./provider/authProvider";
 
 function App() {
   return (

@@ -1,31 +1,35 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import MovieDetails from "@/components/models/movie-details";
-import MovieCard from "@/components/movie/movie-card";
 import { Skeleton } from "@/components/ui/skeleton";
-import type { Movie } from "@/types";
+import type { Movie, MovieDetail } from "@/types";
 import { useSearch, Link } from "wouter";
 import useAuth from "@/hooks/use-auth";
 import { toast } from "sonner";
+import MovieCard from "@/components/ui/movie-card";
+import MovieModel from "@/components/layout/movieModel";
+import { api } from "@/lib/api";
 
 export default function MoviePage() {
   const auth = useAuth();
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(false);
-  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+  const [selectedMovie, setSelectedMovie] = useState<
+    Movie | MovieDetail | null
+  >(null);
   const [openDialog, setOpenDialog] = useState(false);
 
+  // ---- Refs for pagination control ----
   const offsetRef = useRef(0);
   const isFetchingRef = useRef(false);
   const hasMoreRef = useRef(true);
   const isInitialRef = useRef(true);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const sentinelRef = useRef<HTMLDivElement | null>(null);
-  const fetchMoviesRef = useRef<(() => Promise<void>) | undefined>(undefined);
+  const fetchMoviesRef = useRef<(() => Promise<void>) | null>(null);
 
+  // ---- Query Parameters ----
   const search = useSearch();
   const params = new URLSearchParams(search);
   const query = params.get("search");
-  console.log("🎬 Current query param:", query);
   const type = params.get("type") ?? "top_rated";
   const genres = params.get("genres");
 
@@ -34,23 +38,30 @@ export default function MoviePage() {
   }
   const { isAuth } = auth;
 
+  // ---- Fetch Movies ----
   const fetchMovies = useCallback(async () => {
     if (isFetchingRef.current || !hasMoreRef.current) return;
+
     isFetchingRef.current = true;
     setLoading(true);
 
     try {
       const limit = isInitialRef.current ? 20 : 5;
-      let url = `${import.meta.env.VITE_API_URL}/movies`;
+      let url = `/movies`;
+
       if (query) {
-        url += `/search?q=${query}&limit=${limit}&offset=${offsetRef.current}`;
+        url += `/search?q=${encodeURIComponent(query)}&limit=${limit}&offset=${
+          offsetRef.current
+        }`;
       } else if (type === "top_rated") {
         url += `/top_rated?limit=${limit}&offset=${offsetRef.current}`;
-        if (genres) url += `&q=${genres}`;
+        if (genres) url += `&q=${encodeURIComponent(genres)}`;
+      } else {
+        // fallback route
+        url += `?limit=${limit}&offset=${offsetRef.current}`;
       }
 
-      const res = await fetch(url);
-      const data = await res.json();
+      const { data } = await api.get<Movie[]>(url);
 
       if (!Array.isArray(data) || data.length === 0) {
         hasMoreRef.current = false;
@@ -59,14 +70,13 @@ export default function MoviePage() {
 
       setMovies((prev) => [
         ...prev,
-        ...data.filter((m: Movie) => !prev.some((p) => p.id === m.id)),
+        ...data.filter((m) => !prev.some((p) => p.id === m.id)),
       ]);
 
       offsetRef.current += limit;
-      console.log("Fetched:", data.length, "New Offset:", offsetRef.current);
       isInitialRef.current = false;
     } catch (err) {
-      console.error("Error fetching Movies:", err);
+      console.error("Error fetching movies:", err);
       hasMoreRef.current = false;
     } finally {
       isFetchingRef.current = false;
@@ -74,8 +84,8 @@ export default function MoviePage() {
     }
   }, [query, type, genres]);
 
+  // ---- Reset and Refetch when filters change ----
   useEffect(() => {
-    console.log("Reset triggered due to query/type/genres change");
     setMovies([]);
     hasMoreRef.current = true;
     offsetRef.current = 0;
@@ -83,10 +93,12 @@ export default function MoviePage() {
     fetchMovies();
   }, [query, type, genres, fetchMovies]);
 
+  // ---- Keep ref always updated ----
   useEffect(() => {
     fetchMoviesRef.current = fetchMovies;
   }, [fetchMovies]);
 
+  // ---- Infinite Scroll Observer ----
   useEffect(() => {
     if (!sentinelRef.current) return;
 
@@ -103,12 +115,11 @@ export default function MoviePage() {
     observerRef.current.observe(sentinelRef.current);
 
     return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
+      observerRef.current?.disconnect();
     };
   }, []);
 
+  // ---- Handle Card Click ----
   const handleCardOpen = (movie: Movie) => {
     if (!isAuth) {
       toast.error("Please login first", {
@@ -122,10 +133,11 @@ export default function MoviePage() {
         ),
         duration: 4000,
       });
-    } else {
-      setSelectedMovie(movie);
-      setOpenDialog(true);
+      return;
     }
+
+    setSelectedMovie(movie);
+    setOpenDialog(true);
   };
 
   return (
@@ -150,14 +162,14 @@ export default function MoviePage() {
       </div>
 
       {selectedMovie && (
-        <MovieDetails
+        <MovieModel
           movie={selectedMovie}
           isOpen={openDialog}
           onClose={() => {
             setOpenDialog(false);
             setSelectedMovie(null);
           }}
-          onMovieSelect={setSelectedMovie}
+          onMovieSelect={(newMovie) => setSelectedMovie(newMovie)}
         />
       )}
     </>

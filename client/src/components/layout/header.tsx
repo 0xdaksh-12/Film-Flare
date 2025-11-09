@@ -9,9 +9,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar } from "@/components/ui/avatar";
 import { ThemeToggle } from "../ui/theme-toggle";
-import useAuth from "@/hooks/use-auth";
 import { Input } from "../ui/input";
 import { useEffect, useState } from "react";
+import useAuth from "@/hooks/use-auth";
 import { useDebounce } from "@/hooks/use-debounce";
 
 export function Header() {

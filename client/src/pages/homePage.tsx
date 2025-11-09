@@ -1,4 +1,4 @@
-import FilterButton from "@/components/layout/filterButton";
+import Filter from "@/components/layout/filter";
 import TopRated from "@/components/layout/topRated";
 import Trending from "@/components/layout/trending";
 import { useState } from "react";
@@ -8,10 +8,10 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="flex flex-col gap-8 p-4">
+      <div className="flex flex-col p-4">
         <Trending />
       </div>
-      <FilterButton setFilter={setFilter} />
+      <Filter setFilter={setFilter} />
       <TopRated genre={filter} />
     </>
   );

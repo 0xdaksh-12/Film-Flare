@@ -1,13 +1,14 @@
-"use client";
-
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import type { Movie } from "@/types";
 import { Skeleton } from "@/components/ui/skeleton";
-import MovieCard from "@/components/movie/movie-card";
 import { Link } from "wouter";
-import MovieDetails from "../models/movie-details";
+// import MovieDetails from "../models/movie-details";
 import useAuth from "@/hooks/use-auth";
 import { toast } from "sonner";
+import Scroller from "@/components/ui/scroller";
+import MovieCard from "../ui/movie-card";
+import { api } from "@/lib/api";
+import MovieModel from "./movieModel";
 
 export default function TopRated({ genre }: { genre: string[] }) {
   const auth = useAuth();
@@ -15,23 +16,13 @@ export default function TopRated({ genre }: { genre: string[] }) {
   const [loading, setLoading] = useState(true);
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  if (!auth) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
-  const { isAuth } = auth;
 
   useEffect(() => {
     const fetchTopRated = async () => {
       try {
         setLoading(true);
         const qParam = genre.length > 0 ? `?q=${genre.join(",")}` : "";
-        const res = await fetch(
-          `${import.meta.env.VITE_API_URL}/movies/top_rated${qParam}`
-        );
-        if (!res.ok) throw new Error("Failed to fetch top rated movies");
-        const data = await res.json();
+        const { data } = await api.get<Movie[]>(`/movies/top_rated${qParam}`);
         setMovies(data);
       } catch (err) {
         console.error(err);
@@ -39,26 +30,11 @@ export default function TopRated({ genre }: { genre: string[] }) {
         setLoading(false);
       }
     };
-
     fetchTopRated();
   }, [genre]);
 
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const handleWheel = (e: WheelEvent) => {
-      console.log("Wheel delta:", e.deltaY);
-      e.preventDefault();
-      container.scrollLeft += e.deltaY / 3;
-    };
-
-    container.addEventListener("wheel", handleWheel, { passive: false });
-    return () => container.removeEventListener("wheel", handleWheel);
-  }, [movies]);
-
   const handleOpenMovie = (movie: Movie) => {
-    if (isAuth) {
+    if (auth?.isAuth) {
       setSelectedMovie(movie);
       setIsOpen(true);
     } else {
@@ -104,10 +80,7 @@ export default function TopRated({ genre }: { genre: string[] }) {
             ))}
           </div>
         ) : (
-          <div
-            ref={scrollContainerRef}
-            className="flex gap-4 overflow-x-auto w-full  p-2"
-          >
+          <Scroller className="p-2 flex gap-4">
             {movies.slice(0, 20).map((movie) => (
               <div
                 key={movie.id}
@@ -115,18 +88,16 @@ export default function TopRated({ genre }: { genre: string[] }) {
               >
                 <MovieCard
                   movie={movie}
-                  onOpen={() => {
-                    handleOpenMovie(movie);
-                  }}
+                  onOpen={() => handleOpenMovie(movie)}
                 />
               </div>
             ))}
-          </div>
+          </Scroller>
         )}
       </section>
 
       {selectedMovie && (
-        <MovieDetails
+        <MovieModel
           movie={selectedMovie}
           isOpen={isOpen}
           onClose={() => {
