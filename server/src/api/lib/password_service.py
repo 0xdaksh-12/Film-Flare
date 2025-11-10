@@ -1,6 +1,4 @@
 import bcrypt
-from uuid import UUID
-from src.config import Config
 
 
 class PasswordService:

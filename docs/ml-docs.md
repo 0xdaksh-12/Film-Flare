@@ -6,16 +6,16 @@
 
 Dataframe: User | Book | Rating
 
-``` python
+```python
 user_rating[["book","rating"]].groupby(['book']).mean().sort_values(by="rating", ascending=False) # Book may review 1 or 2 time -> 5 Rating
 
 # Filter low number of rating book
 book_frequency = user_rating['book'].value_counts()
-frequently_reviewed_book = book_frequency[book_frequency > 100].index 
+frequently_reviewed_book = book_frequency[book_frequency > 100].index
 
 frequent_books_df=user_rating[user_rating_df['book'].isin(frequently_reviewed_book)]
 
-frequent_books_df[["book","rating"]].groupby(['book']).mean().sort_values(by="rating", ascending=False) 
+frequent_books_df[["book","rating"]].groupby(['book']).mean().sort_values(by="rating", ascending=False)
 
 ```
 
@@ -25,7 +25,7 @@ frequent_books_df[["book","rating"]].groupby(['book']).mean().sort_values(by="ra
 
 Dataframe: UserId, books
 
-``` python
+```python
 
 #  pairing function
 from itertools import permutations
@@ -43,7 +43,7 @@ book_pairs.groupby(['book_a', 'book_b']).size().to_frame(name = 'size').reset_in
 
 ### Based on Similarity of item
 
-``` python
+```python
 dataFrame -> title, genre
 
 # Cross tab -> one to many RelationShip
@@ -78,7 +78,7 @@ new_df['The Hobbit'].sort_values(ascending=False)
 
 ### Text-based Similarities
 
-``` python
+```python
 
 # Term Frequency inverse document Frequency
 
@@ -115,7 +115,7 @@ cosine_similarity(tfidf_df.loc['The Hobbit'].values.reshape(1, -1), tfidf_df.loc
 
 ### User profile recommendations
 
-``` python
+```python
 # Item to Item
 
 list_of_books_read = ['The Hobbit', 'Foundation']

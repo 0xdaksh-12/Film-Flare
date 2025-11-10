@@ -47,20 +47,13 @@ export default function AuthProvider({ children }: Props) {
   // Initialize authentication by attempting token refresh on mount
   useEffect(() => {
     let isMounted = true;
-    console.log("1");
 
     const initializeToken = async (): Promise<void> => {
-      console.log("4");
       if (token) return;
 
       setLoading(true);
       try {
-        console.log("2");
-        const response = await api.post<AuthResponse>(
-          "/auth/refresh",
-          {},
-          { withCredentials: true }
-        );
+        const response = await apiAuth.post<AuthResponse>("/auth/refresh", {});
 
         if (!isMounted) return;
 
@@ -71,7 +64,6 @@ export default function AuthProvider({ children }: Props) {
 
         setToken(response.data.accessToken);
       } catch {
-        console.log("3");
         if (isMounted) {
           setToken(null);
         }
@@ -82,9 +74,7 @@ export default function AuthProvider({ children }: Props) {
       }
     };
 
-    console.log("5");
     initializeToken();
-    console.log("6");
     return () => {
       isMounted = false;
     };
@@ -93,15 +83,12 @@ export default function AuthProvider({ children }: Props) {
   // Track request interceptor readiness
   const interceptorReadyRef = useRef<boolean>(false);
 
-  console.log("7");
   // Setup request interceptor to add Authorization header
   useEffect(() => {
-    console.log("8");
     if (!token) {
       interceptorReadyRef.current = false;
       return;
     }
-    console.log("9");
 
     const requestInterceptor = apiAuth.interceptors.request.use(
       (config: ExtendedRequestConfig): ExtendedRequestConfig => {
@@ -115,7 +102,6 @@ export default function AuthProvider({ children }: Props) {
     );
 
     interceptorReadyRef.current = true;
-    console.log("10");
     return () => {
       apiAuth.interceptors.request.eject(requestInterceptor);
       interceptorReadyRef.current = false;
@@ -127,17 +113,15 @@ export default function AuthProvider({ children }: Props) {
     if (!token || !interceptorReadyRef.current) {
       return;
     }
-    console.log("Not");
     setLoading(true);
     try {
       const response = await apiAuth.get<User>("/users/me");
       setUser(response.data);
-    } catch (error: unknown) {
+    } catch {
       // On fetch failure, assume invalid token and clear auth state
       setToken(null);
       setUser(null);
       // Optionally log the error for debugging
-      console.error("Failed to fetch user:", error);
     } finally {
       setLoading(false);
     }
@@ -277,9 +261,8 @@ export default function AuthProvider({ children }: Props) {
       toast.success("Logged Out", {
         description: "You have been logged out successfully.",
       });
-    } catch (error: unknown) {
+    } catch {
       // Log error but proceed with logout
-      console.error("Logout request failed:", error);
     } finally {
       setToken(null);
       setUser(null);
