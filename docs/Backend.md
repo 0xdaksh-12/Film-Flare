@@ -277,6 +277,36 @@ Implementation details:
 
   6. **Return top-N** — converted to API `Movie` schema.
 
+**`Model`**
+
+| Component         | Description                                                            |
+| ----------------- | ---------------------------------------------------------------------- |
+| **Dataset**       | Uses ratings.csv (userId, movieId, rating, timestamp).                 |
+| **Architecture**  | Simple feedforward model with user and movie embeddings (32-dim each). |
+| **Output Layer**  | Concatenated embeddings → Linear(64 → 1).                              |
+| **Loss Function** | MSELoss                                                                |
+| **Optimizer**     | Adam (default params)                                                  |
+| **Scheduler**     | StepLR(step_size=3, gamma=0.7)                                         |
+| **Metric**        | RMSE and Recall@K                                                      |
+
+- **Training Data**
+
+  - Users: 610
+  - Movies: 9,724
+  - Ratings: 100,836
+  - Split: 90% train / 10% validation (stratified by rating)
+
+- **Training Behavior**
+
+  - 1 epoch shown; RMSE ≈ **0.55**
+  - Precision ≈ **0.56**, Recall ≈ **0.55** (top-100 recommendations, threshold=3.5)
+
+- **Inference**
+
+  - Model input: `(user_id, movie_id)`
+  - Output: Predicted rating ∈ [0, 5]
+  - In production: For user _u_, predict ratings for all unseen movies → top-N sorted.
+
 **`Runtime behavior (how service integrates)`**
 
 - **API call**: `GET /movies/recommendations` (requires `auth_guard`).
